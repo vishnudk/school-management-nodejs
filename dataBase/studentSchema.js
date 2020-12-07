@@ -8,5 +8,9 @@ mongoose.model("dataStudent", {
     password:{
         type:String,
         require:true
+    },
+    new:{
+        type:String,
+        require:false
     }
 })

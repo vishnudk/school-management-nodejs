@@ -99,11 +99,11 @@ app.get('/home/aums',function(req,res){
   console.log("test")
 });
 // app.listen(3000, "192.183.190.3");
-app.listen(3000, '0.0.0.0');
-// http.listen(80,function(req,res){
+// app.listen(3000, '0.0.0.0');
+http.listen(80,function(req,res){
   
-//   console.log("the server has started at  ip:80")
-// })
+  console.log("the server has started at  ip:80")
+})
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
