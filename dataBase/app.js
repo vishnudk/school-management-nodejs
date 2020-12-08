@@ -81,11 +81,14 @@ app.post("/singin",urlParser,async (req,res)=>{
 
 });
 app.post("/api",urlParser,async (req,res)=>{
-  studentD.find({name:req.body.json.user_id}).then((studentData) => {
-    
-    if(req.body.json.passWrd == studentData[0].password){
-    // res.send(true);
-    res.json(req.body)
+  studentD.find({name:req.body.user_id}).then((studentData) => {
+    console.log("got a request form a server!! ");
+    console.log(req)
+    // console.log("the entered data => "+reqbody);
+    // console.log("the data from server=> "+studentData);
+    if(req.body.passWrd == studentData[0].password){
+    res.send(true);
+    // res.json(req.body)
     }
     else{
       res.send(false)

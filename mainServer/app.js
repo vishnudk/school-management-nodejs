@@ -65,14 +65,13 @@ app.get('/post1',function(req,res) {
 function resquestFunction(req){
 return new Promise((resp,rejec)=>{
   axios
-  .post('http://localhost:8080/api', { json: req })
+  .post('http://localhost:8080/api', { user_id:req.user_id, passWrd:req.passWrd })
   .then(res => {
-    // console.log(`statusCode: ${res.statusCode}`)
-    // console.log(res.data)
-    // return res.data
+    console.log("got the response from the database!");
     resp(res.data);
   })
   .catch(error => {
+
     console.error(error)
   })
 });
@@ -80,22 +79,26 @@ return new Promise((resp,rejec)=>{
 
 }
 app.post('/post', urlParser,function(req,res){
-    console.log(req.body)
-     var p = resquestFunction(req.body)
+    console.log(req.body);
+    console.log(req.body.user_id);
+    console.log(req.body.passWrd);
+    var data ={
+      'user_id':req.body.user_id,
+      'passWrd':req.body.passWrd
+    }
+     var p = resquestFunction(data);
      p.then((apiData)=>{
        console.log(apiData);
        if(apiData == true){
        res.json(apiData);
        }
        else{
-
-         axios
-          .get('http://localhost/login/post1');
+         res.send(false);
+         console.log("some error occured!!");
+        //  axios
+        //   .get('http://localhost/login/');
        }
-      //  res.send("hello world=> "+apiData)
       });
-    // res.json(data);
- 
 });
 app.get('/hello/:name',function(req,res){
   const name = req.params.name
