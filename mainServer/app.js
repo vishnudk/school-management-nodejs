@@ -90,7 +90,7 @@ app.post('/post', urlParser,function(req,res){
      var p = resquestFunction(data);
      p.then((apiData)=>{
        console.log(apiData);
-       if(apiData == true){
+       if(apiData.body == true){
         //  axios
           // .get("http://localhost:801/signin");
 

@@ -31,7 +31,7 @@ mongoose.connect('mongodb+srv://schoolUser:KFD7cusZGT6rVGV@schoolmanagementdatab
   console.log("Database is connected");
 });
 app.use(express.json());
-
+app.use(cors());
 app.use("/creed",(req,res)=>{
   console.log("hello")
   res.send("this is the creed extension");
@@ -52,37 +52,9 @@ app.post("/singin",urlParser,async (req,res)=>{
           }
       })
       res.send("a new student was added !!");
-  // studentD.find({name:req.body.json.user_name}).then((studentData) => {
-  //   console.log("student data from the mongodb database=> "+studentData);
-  //   if(req.body.json.user_name == studentData[0].name){
-  //   res.send(false);
-  //   }
-  //   else{
-  //     res.send(false)
-  //   }
-    
   
-  // }).catch(err => {
-  //     var studentData = {
-  //       name: req.body.user_name,
-  //       password:req.body.user_email
-  //     }
-  //     var stud = new studentD (studentData)
-    
-  //     stud.save().then(() => {
-  //         console.log("New student data added!!")
-  //     }).catch((err) => {
-  //         if(err){
-  //             throw err;
-  //         }
-  //     })
-  //     res.send(true);
-
-  // })
-  // res.send("hello new user!!");
-
 });
-app.options('/api', cors());
+
 app.post("/api",urlParser,async (req,res)=>{
   studentD.find({name:req.body.user_id}).then((studentData) => {
    console.log(req);
