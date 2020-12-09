@@ -145,7 +145,7 @@ input[type=submit] {
   border: 2px solid red;
   border-radius: 4px;
 }
-#login_input[type=text], #login_input[type=password] {
+#login_input_name[type=text], #login_input_password[type=password] {
   width: 100%;
   padding: 18px 5px;
   margin: 10px 0;
@@ -154,6 +154,9 @@ input[type=submit] {
   background-color:#dde3ec;
   /* color: white; */
  
+}
+#msg{
+  color: red;
 }
 #longinAcsessChangingLinks{
   /* text-align: left;

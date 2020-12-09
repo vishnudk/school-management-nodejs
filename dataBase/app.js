@@ -8,6 +8,7 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var bodyParser =require('body-parser');
+var cors = require('cors');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var MongoClient = require('mongodb').MongoClient;
@@ -22,6 +23,7 @@ var app = express();
 var mongoose = require('mongoose');
 const http = require('http').Server(app)
 const schema = require("./studentSchema")
+
 const studentD = mongoose.model("dataStudent",'studentData');
 
 
@@ -80,25 +82,27 @@ app.post("/singin",urlParser,async (req,res)=>{
   // res.send("hello new user!!");
 
 });
+app.options('/api', cors());
 app.post("/api",urlParser,async (req,res)=>{
   studentD.find({name:req.body.user_id}).then((studentData) => {
-    console.log("got a request form a server!! ");
-    console.log(req)
-    // console.log("the entered data => "+reqbody);
-    // console.log("the data from server=> "+studentData);
+   console.log(req);
     if(req.body.passWrd == studentData[0].password){
-    res.send(true);
-    // res.json(req.body)
+      console.log(req);
+      console.log(true);
+    res.json({body:true});
+
     }
     else{
-      res.send(false)
+      console.log(false);
+      res.json({body:false});
     }
     
   
   }).catch(err => {
-       res.send(false);
+    console.log(false);
+       res.json({body:false});
     if(err){
-        // throw err;
+      
         console.log('err');
     }
   })

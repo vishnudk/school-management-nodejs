@@ -62,23 +62,24 @@ app.get('/post1',function(req,res) {
   
 
 });
+
 function resquestFunction(req){
-return new Promise((resp,rejec)=>{
-  axios
-  .post('http://localhost:8080/api', { user_id:req.user_id, passWrd:req.passWrd })
-  .then(res => {
-    console.log("got the response from the database!");
-    resp(res.data);
-  })
-  .catch(error => {
-
-    console.error(error)
-  })
-});
-
+  return new Promise((resp,rejec)=>{
+    axios
+    .post('http://localhost:8080/api', { user_id:req.user_id, passWrd:req.passWrd })
+    .then(res => {
+      console.log("got the response from the database!");
+      resp(res.data);
+    })
+    .catch(error => {
+  
+      console.error(error)
+    })
+  });
 
 }
 app.post('/post', urlParser,function(req,res){
+  // alert("hello there ");
     console.log(req.body);
     console.log(req.body.user_id);
     console.log(req.body.passWrd);
@@ -90,10 +91,16 @@ app.post('/post', urlParser,function(req,res){
      p.then((apiData)=>{
        console.log(apiData);
        if(apiData == true){
+        //  axios
+          // .get("http://localhost:801/signin");
+
        res.json(apiData);
        }
        else{
-         res.send(false);
+         res.send("The entered credentials were wrong, you will have to check the data or will have to make a new account!!");
+          // axios
+          // .get("http://localhost:801/signin");
+        // app.location.replace("http://www.w3schools.com");
          console.log("some error occured!!");
         //  axios
         //   .get('http://localhost/login/');

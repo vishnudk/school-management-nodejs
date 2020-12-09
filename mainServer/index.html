@@ -12,32 +12,33 @@
         </style> -->
    
 <head>   
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="apForHtml.js" defer></script> 
 <title>AUMS Login Page</title>
 <link rel="stylesheet" href="stylesheets/styleSheet.css"  type="text/css" />
 </head>
 <body>
+  <!-- <script src="apForHtml.js" defer></script>  -->
+  
   <img id='logo' >
 
     <!-- <link href="D:\documents\nodeApp\apptest2\cssFiles\styleSheet.css" rel="stylesheet"> -->
 <div  id="rcorners1" >
-              <!-- <form action ="google.com" method ="POST"> -->
-          <!-- <form action="https://aumsam.amrita.edu/cas/login" method="POST"> -->
-          <!-- <form action="http://7065dfb95740.ngrok.io/post" method="POST"> -->
+          
 
-         <form action="http://127.0.0.1:3000/post" method="POST">
-          <!-- <form action="http://127.0.0.1:8080/api" method="POST"> -->
-<!--           <form action="http://99c9225d6ded.ngrok.io/post" method="POST"> -->
-            <!-- <form action="http://127.0.0.1:9000/home" method="POST"></form> -->
-            <!-- <form action="https://aumsam.amrita.edu/cas/login?service=https%3A%2F%2Faumsam.amrita.edu%2Faums%2FJsp%2FCore_Common%2Findex.jsp" method="GET"></form> -->
+         <!-- <form action="http://127.0.0.1:3000/post" method="POST"> -->
             <h1>Sign In</h1>
             <!-- <label id="row"> user id: </label><br> -->
-           <input id='login_input' type="text"  name="user_id" placeholder="Username"><br>
+           <input id='login_input_name' type="text"  name="user_id" placeholder="Username"><br>
            <!-- <label id="row">password: </label><br> -->
-           <input id="login_input" type="password"  name="passWrd" placeholder="Password"><br>
-           <button type="submit" >Login</button>
+           <input id="login_input_password" type="password"  name="passWrd" placeholder="Password"><br>
+           <button id ="sbumitBtn" type="submit"  >Login</button>
+           <p id="msg"></p>
+           <p id="msg1"></p>
+
            <a id ="longinAcsessChangingLinks" href="http://localhost:801/signin">sign up</a><br>
            <!-- <a id="longinAcsessChangingLinks" href="https://aumsam.amrita.edu/aums/ForgotPassword.jsp">Can't access your Account</a><br><br> -->
-          </form>
+          <!-- </form> -->
 
 </div>
 <!-- <label id ='p'>Copyright © 2020 Amrita Technologies.</label> -->

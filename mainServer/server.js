@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var bodyParser =require('body-parser');
 var loginPage = require('./app')
+// const apihtml = require("./apForHtml.js");
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -25,6 +26,7 @@ var urlParser = bodyParser.urlencoded({extended:false});
 var url = require('url');
 
 app.use("/login",loginPage);
+// app.get('/apForHtml',apihtml);
 app.use(express.static(path.join(__dirname, 'public')));
 function test(){
   var i

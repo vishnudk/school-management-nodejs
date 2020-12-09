@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>AUMS SignIn Page</title>
+        <title>AUMS SignIn Page</title> 
     </head>
     <body>
+        <script>
+            function confirmPassword(){
+                if(document.getElementById("login_input_user_password").value == document.getElementById("login_input_confirm_password").value){
+                 document.getElementById("msg").innerHTML = "fine to go";   
+                }
+                else{
+                    document.getElementById("msg").innerHTML = "the passwords do not match!"
+                }
+                // document.getElementById("msg").innerHTML = document.getElementById("login_input_user_password").;
+            }
+        </script>
         <h4>This is the sigin in page</h4>
       
-    <form action="http://127.0.0.1:8080/singin" method="POST">
+    <!-- <form action="http://127.0.0.1:8080/singin" method="POST"> -->
         <div>
             <h3>Name</h3>
-            <input id='login_input' type="text"  name="user_name" ><br>
+            <input id='login_input_name' type="text"  name="user_name" ><br>
         </div>
          <div>
-            <h3>Email</h3>
-            <input id='login_input' type="text"  name="user_email" ><br>
+            <h3>password</h3>
+            <input id='login_input_user_password' type="text"  name="user_password" ><br>
         </div>    
         <div>
-            <h3>Roll number</h3>
-            <input id='login_input' type="text"  name="user_roll_number" ><br>
+            <h3>confirm password</h3>
+            <input id='login_input_confirm_password' type="text"  name="user_confirm_password" ><br>
         </div>
         <div>
-            <h3>Contact numbr</h3>
-            <input id='login_input' type="text"  name="user_contact" ><br>
+            <p id='msg'>enter password</p>
         </div>
         <div>
-            <button type="submit" >Submit</button>
+            <button type="submit" onclick="confirmPassword()">Submit</button>
         </div>
         
-    </form>
-    </form>
-    </form>
+    <!-- </form> -->
+    <!-- </form> -->
+    <!-- </form> -->
 
-        </form>
+        <!-- </form> -->
     </body>
 </html>
