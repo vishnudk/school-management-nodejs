@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<script src="./homePageScript.js" defer></script>
+<script>
+    function addName(){
+    document.getElementById("user_name").innerHTML=window.location;
+    // window.location.assign("https://www.w3schools.com")
+    }
+</script>
+<script>var name = "<%= name %>";
+console.log(name);
+</script>
+    </head>
+<body>
+    <h1>hello user this is the home page!!</h1>
+    <p id="user_name"></p>
+    <h1>{{name}}</h1>
+    <button id="check" onclick="addName()">check</button>
+</body>
+</html>

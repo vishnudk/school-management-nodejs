@@ -31,14 +31,14 @@ function test(){
  
 }
 app.use(express.static(path.join(__dirname, 'public')));
-app.get('/',function(req,res){
-  console.log('server starte at http:\\127.0.0.1:9000 out put before the function call')
-  test()
-  console.log("this is the out put after the fucntion call")
-  res.send("hello welcome to the hoem page of my web site")
+// app.get('/',function(req,res){
+//   console.log('server starte at http:\\127.0.0.1:9000 out put before the function call')
+//   test()
+//   console.log("this is the out put after the fucntion call")
+//   res.send("hello welcome to the hoem page of my web site")
   
   
-});
+// });
 app.get('/get',function(req,res) {
   res.sendFile(path.join(__dirname,'getIndex.html'));
   console.log(__dirname)
@@ -49,7 +49,7 @@ app.get('/get',function(req,res) {
 
 });
 
-app.get('/post1',function(req,res) {
+app.get('/',function(req,res) {
 
   console.log(req.params);
   res.sendFile(path.join(__dirname,'index.html'));

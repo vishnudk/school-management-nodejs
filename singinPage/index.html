@@ -10,7 +10,12 @@
                  document.getElementById("msg").innerHTML = "fine to go";   
                 }
                 else{
-                    document.getElementById("msg").innerHTML = "the passwords do not match!"
+                   var item = document.getElementById("msg")
+                   document.getElementById("login_input_user_password").value = "";
+                   document.getElementById("login_input_confirm_password").value = "";
+                   item.innerHTML = "the passwords do not match!"
+                   item.style.color = 'red';
+                    
                 }
                 // document.getElementById("msg").innerHTML = document.getElementById("login_input_user_password").;
             }
