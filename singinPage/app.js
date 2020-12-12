@@ -19,10 +19,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.get("/signin",(req,res)=>{
+app.get("/signup",(req,res)=>{
   res.sendFile(path.join(__dirname,'index.html'));
+});
+app.get("/:name",(req,res)=>{
+  
+  res.sendFile(path.join(__dirname,'dataPage.html'));
 });
 // catch 404 and forward to error handler
 http.listen(801,function(req,res){

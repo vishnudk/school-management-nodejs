@@ -22,9 +22,32 @@ var urlParser = bodyParser.urlencoded({extended:false});
 var app = express();
 var mongoose = require('mongoose');
 const http = require('http').Server(app)
-const schema = require("./studentSchema")
-const studentCredential = mongoose.model("dataStudent","studentCredentials");
-const studentD = mongoose.model("dataStudent",'studentData');
+var schema = require("./studentSchema")
+const studentCredential = mongoose.model("credStudent","studentCredentials");
+const dataSchema = mongoose.Schema;
+const userDataSchema = new dataSchema({
+  user_name:{
+    type:String,
+    require:true
+},
+user_address:{
+    type:String,
+    require:true
+},
+user_rollNumber:{
+    type:String,
+    require:false
+},
+user_department:{
+    type:String,
+    require:true
+},
+user_semester:{
+    type:String,
+    require:true
+}
+});
+const studentDataMongodb = mongoose.model("studentData",userDataSchema,"studentData");
 
 
 mongoose.connect('mongodb+srv://schoolUser:KFD7cusZGT6rVGV@schoolmanagementdatabas.13bcs.mongodb.net/schoolManagement?retryWrites=true&w=majority',{useNewUrlParser: true, useUnifiedTopology: true},() => {
@@ -36,15 +59,15 @@ app.use("/creed",(req,res)=>{
   console.log("hello")
   res.send("this is the creed extension");
 });
-app.post("/singin",urlParser,async (req,res)=>{
+app.post("/singup",urlParser,async (req,res)=>{
   console.log("got the request!1");
-      var studentData = {
+      var studentDataUser = {
         name: req.body.user_name,
         password:req.body.user_password,
         // new:req.body.new
       }
       console.log("got the request!1");
-      var stud = new studentD (studentData);
+      var stud = new  studentCredential(studentDataUser);
     
       stud.save().then(() => {
           console.log("New student data added!!")
@@ -54,18 +77,43 @@ app.post("/singin",urlParser,async (req,res)=>{
               throw err;
           }
       })
-      res.send("a new student data was added !!");
+      
   
 });
 app.post("/credentials",urlParser,async (req,res)=>{
   console.log("got the request!1");
-      var studentData = {
+      var studentDataUser = {
         name: req.body.user_name,
         password:req.body.user_password,
         // new:req.body.new
+        test:"hello"
       }
       console.log("got the request!1");
-      var stud = new studentCredential (studentData);
+      var stud = new studentCredential (studentDataUser);
+    
+      stud.save().then(() => {
+          console.log("New student credentials added!!")
+          res.send(true);
+      }).catch((err) => {
+          if(err){
+              throw err;
+          }
+      })
+      // res.send("a new student was added !!");
+  
+});
+app.post("/studentData",urlParser,async (req,res)=>{
+  console.log("got the request!1 for the sutdent data entry ");
+      var student_data = {
+        user_name: req.body.name,
+        user_address:req.body.address,
+        user_rollNumber:req.body.roll_number,
+        user_department:req.body.department,
+        user_semester:req.body.semester
+        // new:req.body.new
+      }
+      console.log("got the student data");
+      var stud = new studentDataMongodb (student_data);
     
       stud.save().then(() => {
           console.log("New student data added!!")
@@ -75,7 +123,7 @@ app.post("/credentials",urlParser,async (req,res)=>{
               throw err;
           }
       })
-      res.send("a new student was added !!");
+      
   
 });
 

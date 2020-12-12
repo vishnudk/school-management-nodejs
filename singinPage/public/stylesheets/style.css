@@ -53,6 +53,25 @@ input[type=text]:focus{
  border-style: hidden;
  border-bottom: 2px solid lightgreen;  
 }
+input[type=password] {
+  width: 100%;
+  padding: 8px 220px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-style: hidden;
+  border-bottom: 2px solid lightgreen;
+}
+
+input[type=password]:focus{
+  width: 100%;
+ padding: 8px 220px;
+ margin: 8px 0;
+ box-sizing: border-box;
+ border: none;
+ border-style: hidden;
+ border-bottom: 2px solid lightgreen;  
+}
 /* 
 #sumitBtn {
   transition-duration: 0.4s;

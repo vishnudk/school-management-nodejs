@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="apForHtml.js" defer></script> 
+        <title>AUMS SignIn Page</title> 
+    </head>
+    <body>
+
+        <script>
+            function func(){
+                var linkVal = window.location.href;
+    linkVal = linkVal.split('/');
+    
+    console.log(linkVal);
+            var data = {
+                   name:document.getElementById("login_input_name").value,
+                   address:document.getElementById("login_input_address").value,
+                   roll_number:document.getElementById("login_input_roll_no").value,
+                   department:document.getElementById("login_input_department").value,
+                   semester:document.getElementById("login_input_sem").value
+            }
+            console.log("got up to the function!!");
+            axios
+            .post("http://localhost:8080/studentData",data) 
+            .then(res=>{
+                // console.log(res.data);
+                document.getElementById("login_input_name").value="";
+                document.getElementById("login_input_address").value="";
+                document.getElementById("login_input_roll_no").value="";
+                document.getElementById("login_input_department").value="";
+                document.getElementById("login_input_sem").value="";
+
+            })
+            .then(data=>{
+                // location.assign("");
+                location.assign("http://localhost/login");
+                // console.log(data);
+
+            }).catch(err=>{
+                alert("something went wrong!!");
+            });
+
+
+            }
+        </script>
+        <link rel="stylesheet" href="stylesheets/style.css"  type="text/css" />
+        
+      
+    <!-- <form action="http://127.0.0.1:8080/singin" method="POST"> -->
+        <div id ="mainDiv">
+            <h4 id ="titleText">Sign Up</h4>
+                    <div>
+                        <h3>Name</h3>
+                        <input id='login_input_name' type="text"   ><br>
+                    </div>
+                    <div>
+                        <h3>Address</h3>
+                        <input id='login_input_address' type="text"   ><br>
+                    </div>
+                    <div>
+                        <h3>Roll number</h3>
+                        <input id='login_input_roll_no' type="text"   ><br>
+                    </div>
+                    <div>
+                        <h3>Department</h3>
+                        <input id='login_input_department' type="text"   ><br>
+                    </div>
+                    <div>
+                        <h3>Semester</h3>
+                        <input id='login_input_sem' type="text"   ><br>
+                    </div>
+                
+                    <div>
+                        <p id='msg'></p>
+                    </div>
+                    <div>
+                        <button id="sumitBtn" type="submit"  onclick="func()">Submit</button>
+                    </div>
+    </div>
+    <!-- </form> -->
+    <!-- </form> -->
+    <!-- </form> -->
+
+        <!-- </form> -->
+    </body>
+</html>
+
+
+

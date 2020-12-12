@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.model("dataStudent", {
+mongoose.model("credStudent", {
     name:{
         type:String,
         require:true

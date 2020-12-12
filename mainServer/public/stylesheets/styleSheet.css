@@ -12,7 +12,8 @@ h1 {
   font-size: 28px;
     font-weight: 200;
     /* line-height: 1em; */
-  color: #F8951B;
+  /* color: #F8951B; */
+  color: lightgreen;
   margin-left: 100px;
   margin-top: -60px;
 
@@ -56,13 +57,13 @@ input::placeholder{
   -o-border-radius: 7px;
   border-radius: 7px;
   width: 340px;
-  padding:20px 27px;
+  padding:28px 86px;
   padding-top: 100px;
   position: relative;
   /* position: center; */
   /* left: 270px; *
   /* left: 30%; */
-  left: 38%;
+  left: 501px;
   top : 150px;
 }
 /* #loginLogo{
@@ -148,24 +149,21 @@ input[type=submit] {
   border: 2px solid red;
   border-radius: 4px;
 }
-button[type=submit] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-  border: none;
-  border-style: hidden;
-  border-bottom: 2px solid lightgreen;
+button {
+  align-items: center;
+  left: 40px;
+  /* align-self: center; */
+  font-size: large;
+  padding: 8px 147px;
+  border-radius: 8px;
+  background-color: #4CAF50; 
+  color: black; 
+  border: 2px solid #4CAF50;
 }
 
-button[type=submit]:focus{
-  width: 100%;
- padding: 12px 20px;
- margin: 8px 0;
- box-sizing: border-box;
- border: none;
- border-style: hidden;
- border-bottom: 2px solid lightgreen;  
+button:hover {
+  background-color: white;
+  color: black;
 }
 #login_input_name[type=text], #login_input_password[type=password] {
   width: 100%;
