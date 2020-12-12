@@ -1,6 +1,9 @@
 
 
 const subBtn = document.getElementById("sumitBtn");
+window.onload = function(){
+    alert("this is working!! nice");
+  };
 const  resquestFunction =async ()=>{
     console.log("hello man how are you!!");
     if(document.getElementById("login_input_user_password").value == document.getElementById("login_input_confirm_password").value){

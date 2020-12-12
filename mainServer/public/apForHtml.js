@@ -30,7 +30,7 @@ const  resquestFunction =async ()=>{
             document.cookie = "userName = vishnu;path=/;domain=localhost";
             // document.cookie="userName = vishnu";
             var x = document.cookie;
-            location.assign("http://localhost:802/homePage1");
+            location.assign("http://localhost:802/"+document.getElementById("login_input_name").value);
             
            
         }

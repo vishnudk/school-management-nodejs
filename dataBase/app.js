@@ -102,6 +102,7 @@ app.post("/credentials",urlParser,async (req,res)=>{
       // res.send("a new student was added !!");
   
 });
+
 app.post("/studentData",urlParser,async (req,res)=>{
   console.log("got the request!1 for the sutdent data entry ");
       var student_data = {
@@ -126,7 +127,21 @@ app.post("/studentData",urlParser,async (req,res)=>{
       
   
 });
+app.post("/getStudentData",urlParser,async (req,res)=>{
+  console.log(req.body.user_id);
+  studentDataMongodb.find({user_name:req.body.user_id}).then((studentData) => {
+   console.log(studentData);
+    res.json(studentData);
+  }).catch(err => {
+    console.log(false);
+       res.json({body:false});
+    if(err){
+      
+        console.log('err');
+    }
+  })
 
+});
 app.post("/api",urlParser,async (req,res)=>{
   studentCredential.find({name:req.body.user_id}).then((studentData) => {
    console.log(studentData._id);

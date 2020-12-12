@@ -23,10 +23,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.get('/homePage1',(req,res)=>{
+
+app.get('/:name',(req,res)=>{
+  
   // console.log("the name "+req.params.name);
   // console.log("the password is "+req.params.passWrd);
-  res.render(path.join(__dirname,'views/index.jade'),{name:req.params.name,passWrd:"martine"});
+  // res.render(path.join(__dirname,'views/index.jade'),{name:req.params.name,passWrd:"martine"});
+  // res.render(path.join(__dirname,'index.html'));
+  console.log(req.params);
+  res.sendFile(path.join(__dirname,'index.html'));
 });
 app.post("/homePage",urlParser,async (req,res)=>{
   // res.render(path.join(__dirname,'views/index.jade'),{name:req.params.name,passWrd:"martine"})
