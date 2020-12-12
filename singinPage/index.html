@@ -1,28 +1,66 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="apForHtml.js" defer></script> 
         <title>AUMS SignIn Page</title> 
     </head>
     <body>
+
         <script>
-            function confirmPassword(){
-                if(document.getElementById("login_input_user_password").value == document.getElementById("login_input_confirm_password").value){
-                 document.getElementById("msg").innerHTML = "fine to go";   
-                }
-                else{
-                   var item = document.getElementById("msg")
-                   document.getElementById("login_input_user_password").value = "";
-                   document.getElementById("login_input_confirm_password").value = "";
-                   item.innerHTML = "the passwords do not match!"
-                   item.style.color = 'red';
+            function func(){
+                // if(document.getElementById("login_input_user_password").value == document.getElementById("login_input_confirm_password").value){
+                //  document.getElementById("msg").innerHTML = "";   
+
+                // }
+                // else{
+                //    var item = document.getElementById("msg")
+                //    document.getElementById("login_input_user_password").value = "";
+                //    document.getElementById("login_input_confirm_password").value = "";
+                //    item.innerHTML = "the passwords do not match!"
+                //    item.style.color = 'red';
                     
-                }
-                // document.getElementById("msg").innerHTML = document.getElementById("login_input_user_password").;
+                // }
+                console.log("hello man how are you!!");
+            if(document.getElementById("login_input_user_password").value == document.getElementById("login_input_confirm_password").value){
+                document.getElementById("msg").innerHTML = "";   
+                
+            axios
+            .post("http://localhost:8080/credentials",{user_name:document.getElementById("login_input_name").value,user_password:document.getElementById("login_input_user_password").value}) 
+            .then(res=>{
+                // console.log(res.data);
+                document.getElementById("login_input_name").value = "";
+                document.getElementById("login_input_user_password").value = "";
+                document.getElementById("login_input_confirm_password").value = "";
+                return res;
+
+            })
+            .then(data=>{
+                // location.assign("");
+                location.assign("google.com");
+                console.log(data);
+
+            }).catch(err=>{
+                alert("something went wrong!!");
+            });
+
+       }
+       else{
+          var item = document.getElementById("msg")
+          document.getElementById("login_input_user_password").value = "";
+          document.getElementById("login_input_confirm_password").value = "";
+          item.innerHTML = "the passwords do not match!"
+          item.style.color = 'red';
+           
+       }
             }
         </script>
-        <h4>This is the sigin in page</h4>
+        <link rel="stylesheet" href="stylesheets/style.css"  type="text/css" />
+        
       
     <!-- <form action="http://127.0.0.1:8080/singin" method="POST"> -->
+        <div id ="mainDiv">
+            <h4 id ="titleText">Sign Up</h4>
         <div>
             <h3>Name</h3>
             <input id='login_input_name' type="text"  name="user_name" ><br>
@@ -36,12 +74,12 @@
             <input id='login_input_confirm_password' type="text"  name="user_confirm_password" ><br>
         </div>
         <div>
-            <p id='msg'>enter password</p>
+            <p id='msg'></p>
         </div>
         <div>
-            <button type="submit" onclick="confirmPassword()">Submit</button>
+            <button id="sumitBtn" type="submit" onclick="func()">Submit</button>
         </div>
-        
+    </div>
     <!-- </form> -->
     <!-- </form> -->
     <!-- </form> -->

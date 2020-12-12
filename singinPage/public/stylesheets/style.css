@@ -1,8 +1,80 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* color: blue; */
+  background-color: rgba(45, 48, 255, 0.719);
 }
 
 a {
   color: #00B7FF;
+}
+div{
+  /* color:red; */
+ 
+  box-sizing: border-box;
+
+}
+#titleText{
+  font-size: 25px;
+
+  position: relative;
+  left: 188px;
+}
+#mainDiv{
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.493), 0 20px 30px 0 rgba(0, 0, 0, 0.863);
+  position: relative;
+  /* left: 460px; */
+  left: 28%;
+  /* background-color: lightgrey; */
+  width: 600px;
+  
+  padding: 50px;
+  margin: 20px;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 8px 220px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-style: hidden;
+  border-bottom: 2px solid lightgreen;
+}
+
+input[type=text]:focus{
+  width: 100%;
+ padding: 8px 220px;
+ margin: 8px 0;
+ box-sizing: border-box;
+ border: none;
+ border-style: hidden;
+ border-bottom: 2px solid lightgreen;  
+}
+/* 
+#sumitBtn {
+  transition-duration: 0.4s;
+}
+
+#sumitBtn:hover {
+  background-color: #4CAF50; /* Green */
+  /* color: white; */
+/* } */ 
+#sumitBtn {
+  align-items: center;
+  left: 40px;
+  /* align-self: center; */
+  font-size: large;
+  padding: 8px 220px;
+  border-radius: 8px;
+  background-color: #4CAF50; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+#sumitBtn:hover {
+  background-color: white;
+  color: black;
 }

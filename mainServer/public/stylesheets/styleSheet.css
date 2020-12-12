@@ -1,5 +1,6 @@
 body {
-  background-color: #89d1c2;
+  /* background-color: #89d1c2; */
+  background-color: rgba(45, 48, 255, 0.719);
   font-family: Verdana, sans-serif;
     font-size: 12px;
     font-weight: 20;
@@ -45,9 +46,10 @@ input::placeholder{
 
 
 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.493), 0 20px 30px 0 rgba(0, 0, 0, 0.863);
 
-
-  background-color: #eceef1;
+  /* background-color: #eceef1; */
+  background-color: white;
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   -ms-border-radius: 7px;
@@ -60,7 +62,7 @@ input::placeholder{
   /* position: center; */
   /* left: 270px; *
   /* left: 30%; */
-  left: 30%;
+  left: 38%;
   top : 150px;
 }
 /* #loginLogo{
@@ -130,20 +132,40 @@ input::placeholder{
   border: 3px solid green;
   padding: 10px;
 }
-button[type=submit] {
+/* button[type=submit] {
   background-color: #f8971d !important;
+  background-color: lightgreen;
     border-color: #a55f1f !important;
     border: 0;
     padding: 10px 20px;
     font-weight: bold;
-    color: white;
+    color:black;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
-}
+} */
 input[type=submit] {
   border: 2px solid red;
   border-radius: 4px;
+}
+button[type=submit] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-style: hidden;
+  border-bottom: 2px solid lightgreen;
+}
+
+button[type=submit]:focus{
+  width: 100%;
+ padding: 12px 20px;
+ margin: 8px 0;
+ box-sizing: border-box;
+ border: none;
+ border-style: hidden;
+ border-bottom: 2px solid lightgreen;  
 }
 #login_input_name[type=text], #login_input_password[type=password] {
   width: 100%;

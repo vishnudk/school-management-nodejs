@@ -23,7 +23,7 @@ var app = express();
 var mongoose = require('mongoose');
 const http = require('http').Server(app)
 const schema = require("./studentSchema")
-
+const studentCredential = mongoose.model("dataStudent","studentCredentials");
 const studentD = mongoose.model("dataStudent",'studentData');
 
 
@@ -37,15 +37,39 @@ app.use("/creed",(req,res)=>{
   res.send("this is the creed extension");
 });
 app.post("/singin",urlParser,async (req,res)=>{
+  console.log("got the request!1");
       var studentData = {
         name: req.body.user_name,
-        password:req.body.user_email,
-        new:req.body.new
+        password:req.body.user_password,
+        // new:req.body.new
       }
+      console.log("got the request!1");
       var stud = new studentD (studentData);
     
       stud.save().then(() => {
           console.log("New student data added!!")
+          res.send(true);
+      }).catch((err) => {
+          if(err){
+              throw err;
+          }
+      })
+      res.send("a new student data was added !!");
+  
+});
+app.post("/credentials",urlParser,async (req,res)=>{
+  console.log("got the request!1");
+      var studentData = {
+        name: req.body.user_name,
+        password:req.body.user_password,
+        // new:req.body.new
+      }
+      console.log("got the request!1");
+      var stud = new studentCredential (studentData);
+    
+      stud.save().then(() => {
+          console.log("New student data added!!")
+          res.send(true);
       }).catch((err) => {
           if(err){
               throw err;
@@ -56,11 +80,13 @@ app.post("/singin",urlParser,async (req,res)=>{
 });
 
 app.post("/api",urlParser,async (req,res)=>{
-  studentD.find({name:req.body.user_id}).then((studentData) => {
-   console.log(req);
+  studentCredential.find({name:req.body.user_id}).then((studentData) => {
+   console.log(studentData._id);
+
     if(req.body.passWrd == studentData[0].password){
-      console.log(req);
-      console.log(true);
+      // console.log(req);
+      // console.log(true);
+      
     res.json({body:true});
 
     }
