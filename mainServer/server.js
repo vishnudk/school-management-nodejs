@@ -25,7 +25,9 @@ var app = express();
 const http = require('http').Server(app);
 var urlParser = bodyParser.urlencoded({extended:false});
 var url = require('url');
-
+app.use('/signup',(req,res)={
+  fetch("http://localhost:801/signup");
+});
 app.use("/login",loginPage);
 // app.get('/apForHtml',apihtml);
 app.use(express.static(path.join(__dirname, 'public')));

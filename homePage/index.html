@@ -26,11 +26,11 @@ console.log(name);
             .then(res=>{
                 var dataArr = res.data[0];
                 console.log(dataArr)
-                document.getElementById("login_name").innerHTML = dataArr.user_name;
-                document.getElementById("login_address").innerHTML = dataArr.user_address;
-                document.getElementById("login_roll_no").innerHTML = dataArr.user_rollNumber;
-                document.getElementById("login_department").innerHTML = dataArr.user_department;
-                document.getElementById("login_sem").innerHTML = dataArr.user_semester;
+                document.getElementById("login_name").innerHTML = "Name : "+dataArr.user_name;
+                document.getElementById("login_address").innerHTML = "Address : "+dataArr.user_address;
+                document.getElementById("login_roll_no").innerHTML = "Roll No : "+dataArr.user_rollNumber;
+                document.getElementById("login_department").innerHTML = "Department : "+dataArr.user_department;
+                document.getElementById("login_sem").innerHTML ="Sem : "+ dataArr.user_semester;
 
             })
            .catch(err=>{
@@ -42,23 +42,23 @@ console.log(name);
     <div id ="mainDiv">
         
                 <div>
-                    <h2>Name :</h2>
+                    <!-- <h2>Name :</h2> -->
                     <h2 id='login_name' ></h2>
                 </div>
                 <div>
-                    <h2>Address :</h2>
+                    <!-- <h2>Address :</h2> -->
                     <h2 id='login_address' ></h2>
                 </div>
                 <div>
-                    <h2>Roll number :</h2>
+                    <!-- <h2>Roll number :</h2> -->
                     <h2 id='login_roll_no' ></h2>
                 </div>
                 <div>
-                    <h2>Department :</h2>
+                    <!-- <h2>Department :</h2> -->
                     <h2 id='login_department'></h2>
                 </div>
                 <div>
-                    <h2>Semester :</h2>
+                    <!-- <h2>Semester :</h2> -->
                     <h2 id='login_sem'></h2>
                 </div>
             
